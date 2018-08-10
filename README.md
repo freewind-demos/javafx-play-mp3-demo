@@ -1,5 +1,7 @@
-JavaFX Hello World Demo
-=======================
+JavaFX Play Mp3 Demo
+====================
 
-Show a window with `Hello, JavaFX` label.
+Play mp3 file with JavaFx API.
+
+Run `Hello.java` in your IDE.
 

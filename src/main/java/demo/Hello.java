@@ -2,9 +2,13 @@ package demo;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Hello extends Application {
     public static void main(String[] args) {
@@ -15,9 +19,17 @@ public class Hello extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hello");
         VBox root = new VBox() {{
-            getChildren().add(new Label("Hello, JavaFX!"));
+            getChildren().add(new Button("Play mp3") {{
+                setOnAction(event -> playMp3(new File("data/demo.mp3")));
+            }});
         }};
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
+    }
+    
+    private void playMp3(File file) {
+        Media hit = new Media(file.toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 }
