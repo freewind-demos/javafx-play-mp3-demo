@@ -26,9 +26,11 @@ public class Hello extends Application {
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
     }
-    
+
     private void playMp3(File file) {
-        Media hit = new Media(file.toURI().toString());
+        String fileUri = file.toURI().toString();
+        System.out.println("fileUri: " + fileUri);
+        Media hit = new Media(fileUri);
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.play();
     }
